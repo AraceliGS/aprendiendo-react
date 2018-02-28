@@ -15,6 +15,8 @@ function Cabecera(props) {
       'Un link? ', br(null), 
     a({href: 'http://laboratoria.la'}, 'Laboratoria', '!') )
  );
+ console.log(div);
+ console.log(prop.saludos);
 }
 
 ReactDOM.render(
