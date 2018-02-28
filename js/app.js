@@ -1,11 +1,22 @@
 const div = React.DOM.div;
 const h2 = React.DOM.h2;
+const p = React.DOM.p;
+const a = React.DOM.a;
+const b = React.DOM.b;
+const br = React.DOM.br;
 
-function Cabecera() {
-  const titulo = 'Hola Mundo';
-  const elemento = div(null, h2(null, titulo));
+function Cabecera(props) {
+  const titulo = 'Saludo';
 
-  return elemento;
+  return div(null, 
+    h2(null, titulo),
+    p(null, 
+      'Hola ', b(null, props.saludo), '.', br(null), 
+      'Un link? ', br(null), 
+    a({href: 'http://laboratoria.la'}, 'Laboratoria', '!') )
+ );
 }
 
-ReactDOM.render(Cabecera(), document.getElementById('react-container'));
+ReactDOM.render(
+  Cabecera({saludo: 'Mundo'}), document.getElementById('cabecera')
+);
