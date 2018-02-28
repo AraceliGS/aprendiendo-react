@@ -8,10 +8,4 @@ function encender() {
 
 app.use(express.static('public'));
 
-app.get('/pokemoncitos/search/:pokename', sendPokemon);
-
-function sendPokemon(request, response) {
-    const data = request.params;
-    response.send('Hola te envio a' + ' ' + data.pokename + ' ' + 'es lo que estas buscando.')
-}
 
