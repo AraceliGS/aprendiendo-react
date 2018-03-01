@@ -1,49 +1,60 @@
-// document.getElementById('box');
+const data = {
+  headerTitulo: 'Getting Started',
+  headerDescripcion: 'Descripcion',
+  mainSectionTitulo: 'Main Section',
+  articles: [
+    { titulo: 'Titulo 1', descripcion: 'Descripcion 1'},
+    { titulo: 'Titulo 2', descripcion: 'Descripcion 2'},
+    { titulo: 'Titulo 3', descripcion: 'Descripcion 3'}
+  ],
+  asideTitulo: 'Links',
+  links: [
+    { href: '#', texto: 'Link 1'},
+    { href: '#', texto: 'Link 2'},
+    { href: '#', texto: 'Link 3'},
+    { href: '#', texto: 'Link 4'},
+    { href: '#', texto: 'Link 5'}
+  ],
+};
 
-// const title = React.createElement('h1', {id: 'title'}, 'Hola Mundo');
-const mainTitle = (
+function Header(props) {
+  return (
   <div className={'color'}>
-    <h1>Getting Started</h1>
-    <p>Descripción</p>
+    <h1>{props.headerTitle}</h1>
+    <p>{props.headerDescription}</p>
   </div>
-);
+  )
+};
 
-ReactDOM.render(mainTitle, document.getElementById('header'));
 
-const articleSection = (
+function MainSection(props) {
+  return (
   <div className={'article-section'}>
-    <h2>Main Section</h2>  
-    <article>
-      <h3>Título 1</h3>
-      <p>Descripción 1</p>
-      <hr/>
-    </article>
-    <article>
-      <h3>Título 2</h3>
-      <p>Descripción 2</p>
-      <hr/>
-    </article>
-    <article>
-      <h3>Título 3</h3>
-      <p>Descripción 3</p>
-      <hr/>
-    </article>
+    <h2>{props.mainSectionTitle}</h2>  
   </div>
-);
+  )
+};
 
-ReactDOM.render(articleSection, document.getElementById('main'));
+const children = props.articles.map(function(el) {
+  return <Article titulo={props.article} descripcion= {props.articleText}/>
+});
 
-const linksSection = (
+
+function Aside(props) {
   <div className={'links-section'}>
-    <h4>Links</h4>
-    <ul>
-      <li><a href='#'>Link 1</a></li>
-      <li><a href='#'>Link 2</a></li>
-      <li><a href='#'>Link 3</a></li>
-      <li><a href='#'>Link 4</a></li>
-      <li><a href='#'>Link 5</a></li>
-    </ul>
+    <h4>{props.asideTitle}</h4>
+    <ul id= {listOfLinks}></ul>
   </div>
-);
+}
 
-ReactDOM.render(linksSection, document.getElementById('aside'));
+const links = props.links.map(function(a) {
+  return <li><a href={props.href}>{props.text}</a></li>
+});
+
+
+
+ReactDOM.render(
+  Header({headerTitle: data.headerTitulo, headerDescription: data.headerDescripcion}),
+  
+  document.getElementById('react-container')
+);
