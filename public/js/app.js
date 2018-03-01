@@ -39,7 +39,6 @@ const children = props.articles.map(function(el) {
   return <Article titulo={props.article} descripcion= {props.articleText}/>
 });
 
-
 function Aside(props) {
   <div className={'links-section'}>
     <h4>{props.asideTitle}</h4>
@@ -55,6 +54,5 @@ const links = props.links.map(function(a) {
 
 ReactDOM.render(
   Header({headerTitle: data.headerTitulo, headerDescription: data.headerDescripcion}),
-  
-  document.getElementById('react-container')
+  document.getElementById()
 );
